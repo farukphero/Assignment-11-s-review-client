@@ -1,11 +1,14 @@
  import React, { useContext, useState } from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../images/login/login.svg'
 import { AuthContext } from "../../contexts/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 
 const SignIn = () => {
- const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   const {accountSignIn,providerGoogleLogIn}= useContext(AuthContext)
   const googleProvider = new GoogleAuthProvider();
   const [error, setError] = useState("");
@@ -20,8 +23,7 @@ const SignIn = () => {
     accountSignIn(email, password)
       .then((result) => {
         const user = result.user;
-        navigate('/')
-        // navigate(from, { replace: true });
+        navigate(from, { replace: true });
         console.log(user);
         
       })
@@ -34,8 +36,7 @@ const SignIn = () => {
     providerGoogleLogIn(googleProvider)
       .then((result) => {
         const user = result.user;
-        // navigate(from, { replace: true });
-        navigate('/')
+        navigate(from, { replace: true });
         console.log(user);
       })
       .catch((error) => {
