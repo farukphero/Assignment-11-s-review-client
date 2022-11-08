@@ -13,7 +13,7 @@ const Header = () => {
             <Link to='/' className="text-white text-3xl">FLY_ <span className="font-bold text-indigo-400">PLANE</span></Link>
           </div>
           <div>
-               <Link className="text-white mr-6 text-2xl font-semibold">Sign In</Link>
+               <Link to='/signin' className="text-white mr-6 text-2xl font-semibold">Sign In</Link>
                </div>
           <div className="flex-none gap-2">
             <div className="dropdown dropdown-end">
@@ -45,8 +45,8 @@ const Header = () => {
       </div>
       <div className="p-5 bg-base-100 bg-opacity-25 rounded">
         <div className="text-center">
-         <Link to='' className="mr-5 md:mr-12 text-white font-semibold text-lg">Home</Link>
-         <Link to='' className="mr-5 md:mr-12 text-white font-semibold text-lg">jhd</Link>
+         <Link to='/' className="mr-5 md:mr-12 text-white font-semibold text-lg">Home</Link>
+         <Link to='/services' className="mr-5 md:mr-12 text-white font-semibold text-lg"> Services</Link>
          <Link to='' className="mr-5 md:mr-12 text-white font-semibold text-lg">fgfxdbvg</Link>
          <Link to='' className="text-white               font-semibold text-lg">dfgbdfbhdf </Link>
        
