@@ -16,7 +16,7 @@ const Services = () => {
                 <img className='w-full h-96' src="https://preview.colorlib.com/theme/flyplane/img/places/hp-1.jpg" alt="" />
               <p className='absolute top-52 left-0 md:left-28 text-white text-3xl md:text-6xl font-semibold'> Select Your Desired Place</p>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-10 my-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-0 md:mx-10 my-10'>
             {
                 services.map(service=><Service key={service._id} service={service}></Service>)
             }

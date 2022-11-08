@@ -21,7 +21,7 @@ const Home = () => {
            }
            </div>
            <div className="text-center">
-       <button className="btn btn-active btn-ghost px-6 py-4 rounded text-black mt-10"><Link to='/services'>More Services</Link></button>
+       <button className="btn btn-active btn-ghost px-6 py-4 rounded text-black mt-10"><Link to='/services'>See All</Link></button>
        </div>
         </div>
     );

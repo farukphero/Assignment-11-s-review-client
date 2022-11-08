@@ -1,24 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import "react-photo-view/dist/react-photo-view.css";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 
-const Service = ({service}) => {
-    const {_id, img, description, title } = service;
-    return (
-      <div>
-        <div className="hero min-h-full">
-          <img className='h-full w-full rounded' src={img} alt="" />
-          <div className="hero-overlay bg-opacity-60"></div>
-          <div className="hero-content text-center text-neutral-content">
-            <div className="max-w-md">
-              <h1 className="mb-5 text-5xl font-bold">{title}</h1>
-              <p className="mb-5">
-                 {description.slice(0, 99)+"..." }<Link className='underline text-amber-400' to={`/servicedetails/${_id}`}>read more</Link>
-              </p>
-              <button className="btn btn-primary"><Link to={`/servicedetails/${_id}`}>details</Link></button>
-            </div>
+const Service = ({ service }) => {
+  const { _id, img, description, title, price } = service;
+  return (
+    <div>
+      <div className="card w-96 bg-base-100 shadow-xl">
+        <PhotoProvider>
+          <PhotoView src={img}>
+            <img className="h-64 rounded" src={img} alt="" />
+          </PhotoView>
+        </PhotoProvider>
+
+        <div className="card-body items-center justify-start">
+          <h1 className="mb-5 text-5xl font-bold">{title}</h1>
+          <p className="mb-5">
+            {description.slice(0, 100) + "..."}
+            <Link
+              className="underline text-amber-400"
+              to={`/servicedetails/${_id}`}
+            >
+              read more
+            </Link>
+          </p>
+            <p>Price: $ {price}</p>
+          <div className="card-actions justify-between">
+            <button className="btn btn-primary">
+              <Link to={`/servicedetails/${_id}`}>view details</Link>
+            </button>
           </div>
         </div>
       </div>
-)};
+    </div>
+  );
+};
 
 export default Service;

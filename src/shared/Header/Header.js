@@ -28,12 +28,12 @@ const Header = () => {
               >
                 <li>
                   <Link className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
+                  My reviews
+                    
                   </Link>
                 </li>
                 <li>
-                  <Link>Settings</Link>
+                  <Link>Add service</Link>
                 </li>
                 <li>
                   <button>Logout</button>
