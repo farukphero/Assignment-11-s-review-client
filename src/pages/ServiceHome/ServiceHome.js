@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Service = ({service}) => {
+const ServiceHome = ({service}) => {
     const {_id, img, description, title } = service;
     return (
       <div>
@@ -12,13 +12,14 @@ const Service = ({service}) => {
             <div className="max-w-md">
               <h1 className="mb-5 text-5xl font-bold">{title}</h1>
               <p className="mb-5">
-                 {description.slice(0, 99)+"..." }<Link className='underline text-amber-400' to={`/servicedetails/${_id}`}>read more</Link>
+                 {description.slice(0, 100)+"..." }<Link className='underline text-amber-400' to={`/servicedetails/${_id}`}>read more</Link>
               </p>
               <button className="btn btn-primary"><Link to={`/servicedetails/${_id}`}>details</Link></button>
             </div>
           </div>
         </div>
       </div>
-)};
+    );
+};
 
-export default Service;
+export default ServiceHome;
