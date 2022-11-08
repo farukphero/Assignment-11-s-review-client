@@ -1,25 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import image from "../../images/png-clipart-icon-design-social-media-favicon-icon-aircraft-television-angle-thumbnail.png"
 import { FaUserCircle} from "@react-icons/all-files/fa/FaUserCircle";
+import { AuthContext } from "../../contexts/AuthProvider";
+
 
 const Header = () => {
+  const {logOut, user} = useContext(AuthContext)
+
+  const handleLogOut=()=>{
+    logOut()
+  }
   return (
     <div>
       <div>
+     
         <div className="navbar">
           <div className="flex-1">
             <img className="h-12 w-12 mr-3  rounded-full" src={image} alt="" />
             <Link to='/' className="text-white text-3xl">FLY_ <span className="font-bold text-indigo-400">PLANE</span></Link>
           </div>
           <div>
-               <Link to='/signin' className="text-white mr-6 text-2xl font-semibold">Sign In</Link>
+               {
+                user ? <>
+                </> :<Link to='/signin' className="text-white mr-6 text-2xl font-semibold">Sign In</Link>
+               }
                </div>
           <div className="flex-none gap-2">
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn-circle ">
-                <div className=" rounded-full">
-                <FaUserCircle className="h-12 w-12 text-white"/>
+                <div className="rounded-full">
+              
+
+                
+           {user?.photoURL ? <img title={user?.displayName} className="h-12 w-12 rounded-full mr-5 mt-0" src={user?.photoURL} alt="" />:
+          <FaUserCircle className="h-12 w-12 text-white"/>
+          }
+                
                </div>
               </label>
               <ul
@@ -36,7 +53,7 @@ const Header = () => {
                   <Link>Add service</Link>
                 </li>
                 <li>
-                  <button>Logout</button>
+                  <button onClick={handleLogOut}>Logout</button>
                 </li>
               </ul>
             </div>

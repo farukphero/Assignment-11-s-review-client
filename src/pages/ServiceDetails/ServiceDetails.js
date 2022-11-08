@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { FaUserCircle} from "@react-icons/all-files/fa/FaUserCircle";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const ServiceDetails = () => {
+  const {user} = useContext(AuthContext)
   const singleCourse = useLoaderData();
 
   console.log(singleCourse);
@@ -14,7 +16,15 @@ const ServiceDetails = () => {
         <h1>Review section:-</h1>
         <div className="card w-96 bg-base-100 shadow-xl">
           <div className="card-body">
-            <h2 className="card-title"> <FaUserCircle className="h-12 w-12 text-black"/>Card title!</h2>
+            <h2 className="card-title">{user?.photoURL ? <img title={user?.displayName} className="h-12 w-12 rounded-full mr-5 mt-0" src={user?.photoURL} alt="" />:
+          <FaUserCircle className="h-12 w-12 text-white"/>
+          }{
+            user &&
+             <>
+             <h1>{user?.displayName}</h1>
+             </>
+             
+          }</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             
           </div>
