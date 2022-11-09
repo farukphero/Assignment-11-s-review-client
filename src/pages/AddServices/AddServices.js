@@ -1,25 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+ 
  
 
 const AddServices = () => {
- 
+     const [error, setError] = useState("")
+     const navigate = useNavigate()
     const handleAddService=(event)=>{
        event.preventDefault()
        const form= event.target;
-       const name = form.name.value
-       const photoURL = form.photoURL.value
+       const title = form.name.value
+       const img = form.photoURL.value
        const price = form.price.value
-       const email = form.email.value
-       const serviceMessage = form.serviceMessage.value 
-
-       const newServices = {name,photoURL,price, email, serviceMessage}
-       console.log(name, photoURL, price ,email, serviceMessage)
-       fetch('http://localhost:5000/newServices',{
+       const situated = form.place.value
+       const description = form.serviceMessage.value 
+       if(description.length < 100){
+        setError("Please add description more than 100 character")
+       }
+        
+       const services = {title,img,price, situated, description}
+       if(services){
+        alert('Wow! successfully added service')
+        navigate('/services')
+       }
+      //  console.log(name, photoURL, price ,email, serviceMessage)
+       fetch('http://localhost:5000/services',{
         method:'POST',
         headers:{
           'content-type': 'application/json'
         },
-        body: JSON.stringify(newServices)
+        body: JSON.stringify(services)
 
        })
        .then(res=>res.json())
@@ -44,11 +54,12 @@ const AddServices = () => {
 <div className="card w-full md:w-3/4 mx-auto bg-amber-300 shadow-xl mt-16">
 <form onSubmit={handleAddService} className="card-body">
    
-<input type="text"  name='name'placeholder="Full Name" className="input w-full" />
-<input type="text"  name='photoURL'placeholder="PhotoURL" className="input w-full" />
-<input type="text"  name='price'placeholder="Price" className="input w-full" />
-<input type="email" name='email' placeholder="Email" className="input w-full" />
+<input type="text" name='name'placeholder="Full Name" className="input w-full" required/>
+<input type="text" name='photoURL'placeholder="PhotoURL" className="input w-full" required/>
+<input type="text" name='price'placeholder="Price" className="input w-full" required/>
+<input type="text" name='place' placeholder="place" className="input w-full" required/>
 <textarea className="textarea min-h-16" name='serviceMessage' placeholder="Describe about service" required></textarea>
+ <p>{error}</p>
    <button className="btn btn-primary">Submit</button>
 </form>
 </div>
