@@ -2,7 +2,9 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import image from '../../images/login/login.svg'
 import { AuthContext } from "../../contexts/AuthProvider";
-// import './SignIn.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const SignUp = () => {
   const [passwordError, setPasswordError] = useState("");
@@ -18,7 +20,7 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photoURL = form.photoURL.value
-    console.log(name, email, password)
+    // console.log(name, email, password)
 
     if (password.length < 8) {
       setPasswordError("password should be 8 character");
@@ -30,6 +32,7 @@ const SignUp = () => {
         const user = result.user;
         updateName()
         navigate('/')
+        toast("Wow so easy!")
         handleUpdateProfile(name, photoURL)
         console.log(user);
   
@@ -45,8 +48,10 @@ const SignUp = () => {
       .then(() => {})
       .catch((error) => setPasswordError(error.message));
   };
+  
     return (
       <div className="hero min-h-screen bg-base-200">
+        <ToastContainer />
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
          
@@ -85,7 +90,7 @@ const SignUp = () => {
             </div>
             <p className='text-black'>{passwordError}</p>
             <div className="form-control mt-6">
-               <button className='btn btn-primary'>submit</button>
+               <button  className='btn btn-primary'>submit</button>
             </div>
           </form>
         </div>

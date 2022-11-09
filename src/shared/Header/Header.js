@@ -44,13 +44,13 @@ const Header = () => {
                 className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <Link className="justify-between">
+                  <Link to='/myreview' className="justify-between">
                   My reviews
                     
                   </Link>
                 </li>
                 <li>
-                  <Link>Add service</Link>
+                  <Link to='/addservices'>Add service</Link>
                 </li>
                 <li>
                   <button onClick={handleLogOut}>Logout</button>
@@ -64,8 +64,8 @@ const Header = () => {
         <div className="text-center">
          <Link to='/' className="mr-5 md:mr-12 text-white font-semibold text-lg">Home</Link>
          <Link to='/services' className="mr-5 md:mr-12 text-white font-semibold text-lg"> Services</Link>
-         <Link to='' className="mr-5 md:mr-12 text-white font-semibold text-lg">fgfxdbvg</Link>
-         <Link to='' className="text-white               font-semibold text-lg">dfgbdfbhdf </Link>
+         <Link to='/blog' className="mr-5 md:mr-12 text-white font-semibold text-lg"> Blog</Link>
+         {/* <Link to='' className="text-white               font-semibold text-lg">dfgbdfbhdf </Link> */}
        
         </div>
       </div>

@@ -31,6 +31,7 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
   const updateName = (profile) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, profile)
       .then(() => {
         // Profile updated!
@@ -58,6 +59,7 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
+    loading,
     createUserByEmail,
     accountSignIn,
     logOut,
