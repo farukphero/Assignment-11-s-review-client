@@ -54,4 +54,8 @@ export const router = createBrowserRouter([
       element: <ServiceDetails></ServiceDetails>,
       loader:({params})=> fetch(`http://localhost:5000/services/${params.id}`)
     },
+    {
+      path: "*",
+      element: <h1>404 page not found</h1>,
+    },
   ])
