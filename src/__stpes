@@ -1,0 +1,121 @@
+[
+    { 
+        "service_id": "01",
+        "title": "Cox’s Bazar",
+        "img": "https://thesimpletravel.com/wp-content/uploads/2022/02/Coxs-Bazar.jpg?ezimgfmt=ng:webp/ngcb2",
+        "price": "320.00",
+        "description": "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island.The fresh seafood, long natural beaches, local hospitality, and the nearby attractions are the notable reasons why Coxs’ Bazar is famous to both local and international tourists. It is the longest natural sea beach globally, with several beachside hotels making it easier for people to spend time at the beach. Near Cox’s Bazar town, other than the Cox’s Bazar sea beach, several tourist attractions attract travellers all around the year.At the east of Coxs Bazar town, Himchari National Park has around 117 tree species, 286 bird species, and 26 mammal species. Then there is Ramu, a Buddhist village selling local handicrafts in their markets. The first Safari Park of the country, Bangabandhu Sheikh Mujib Safari Park, is also located nearby. The only aquarium in Bangladesh, the Radiant Fish World, is also located in Cox’s Bazar. ",
+        "visitTime": "November-December",
+        "stay":{
+            "first":"Hotel Asia, Hotel Sea Shine",
+            "second":"Laguna Beach Hotel & Resort",
+            "third":"Long Beach Hotel"
+        }
+    },
+    { 
+        "service_id": "02",
+        "title": "St. Martin’s Island",
+        "img": "https://thesimpletravel.com/wp-content/uploads/2022/02/St-Martin.jpg?ezimgfmt=ng:webp/ngcb2",
+        "price": "230.00",
+        "description": "The only coral island in Bangladesh is St. Martin’s Island. Due to the excessive coconut trees on the island, this island is known as “Narikel Zinzira” in Bengali, which means ‘Coconut Island’. The island is 9 km south of Coxs Bazar.Some rare species of corals can be found only on St. Martin’s Island. There are some resort hotels on the island for tourists. Walking over the clean beaches and swimming in the clean water are enjoyable. You can enjoy a boat ride to the Chera Dwip, a small island near St. Martin’s. Chera Dwip was detached from St. Martin due to high tides. Scuba diving is a must when you are in St. Martin. You can also try the delicious local food, buy some souvenirs at low prices from the local market, and click some great pictures.",
+        "visitTime": "November-February",
+        "stay":{
+            "first":"Blue Marine Resort",
+            "second":"Blue Marine Resort",
+            "third":"Shamudra Bilash Ananda Ashram"
+        }
+    
+    },
+    { 
+        "service_id": "03",
+        "title": "Sundarban",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQSHyKCRRJzoeQtB2htg18TD9FirTTUmnpiQ&usqp=CAU",
+        "price": "420.00",
+        "description": "Sundarban is home to some of the globally endangered species like- the Royal Bengal Tiger, river terrapin, estuarine crocodiles, and Ganges-Irawadi dolphins, which makes this mangrove forest one of the most famous tourist places of Bangladesh. Sundarban is the largest mangrove forest globally, located in the Khulna Division of Bangladesh. About 60% of the total area of Sundarban is in Bangladesh, and the rest, 40%, is in India.In Sundarban, there are 334 plant species, 150 species of commercially imported fish, 270 species of birds, 42 species of mammals, 35 reptiles and 8 amphibian species. There are around 180 Bengal tigers in Sundarban. You can visit a wildlife sanctuary in Sundarban as there are around 4-5 sanctuaries. Many estuaries and canals are flowing through the forest. A boat ride through these in the morning can be an exhilarating adventure. You can walk on the peaceful and serene beach located inside Sundarban, which is Jamtola Beach. Tourists are mainly attracted by the Coxs Bazar sea beach, due to which the Jamtola beach remains empty, clean and quiet.",
+        "visitTime": "October-March",
+        "stay":{
+            "first":"Tiger Garden Int Hotel",
+            "second":"Jatra Flagship Khulna City Centre",
+            "third":"Sundarban Hotel"
+        }
+     
+    },
+    { 
+        "service_id": "4",
+        "title": "Srimangal",
+        "img": "https://thesimpletravel.com/wp-content/uploads/2022/02/Srimangal.jpg?ezimgfmt=ng:webp/ngcb2",
+        "price": "250.00",
+        "description": "The green tea fields make Srimangal a famous tourist place in Bangladesh. It is located in the Moulvi Bazar District of Sylhet Division. It is the tea capital of Bangladesh due to a large number of tree plantations and the origin of the seven coloured tea. Madhobpur Lake and Baikka Beel are two notable reasons for the popularity of Srimangal. Madhobpur Lake is the only confirmed site in Bangladesh where the great white-bellied heron is found. Baikka Beel is a small wetland that is home to the large-billed reed warbler. Other than Madhobpur Lake and Baikka Beel, Srimangal is also popular for Lawachara Rain Forest, Hum Hum waterfall, and Reama Kalenga Reserve Forest located nearby.While you are in Srimangal, trying out the seven-coloured tea is a must. You can walk around the tea gardens and click on some good photographs. You can take boat rides in Madhobpur Lake and Baikka Beel. Bathing under the Hum Hum waterfall will be a really exciting thing to do. You can also walk around the two reserve forests, Lawachara Rain Forest and Reama Kalenga Reserve Forest.",
+        "visitTime": "During March-May",
+        "stay":{
+            "first":"Grand Selim Resort & Tour",
+            "second":"Hotel Ishaqi Amos",
+            "third":"Shanti Bari Resort"
+        }
+    },
+    { 
+        "service_id": "05",
+        "title": "Lalakhal",
+        "img": "https://thesimpletravel.com/wp-content/uploads/2022/02/Lalakhal.jpg?ezimgfmt=ng:webp/ngcb2",
+        "price": "230.00",
+        "description": "Lalakhal is the most attractive and wide canal in Sylhet. The specialty of this river is you can see different colors in this canal at a different point like blue, gree, clear water. You can enjoy boat riding, swimming or lying on the canal. You can also enjoy the charming beauty of the blue mountains from the top of the hill. The wide canal, Lalakhal, is located in Jaintiapur of Sylhet District. The bluish-green water is the main reason why people visit this place. A boat ride is the only thing to do in Lalakhal. But the combination of the green hills and beautiful water of the canal will definitely blow your mind off. Sunsets have a different beauty in Lalakhal. There are no restaurants nearby, so you have to take food and water along if you are on a day trip. But there are some resorts where you can stay and have your meal.",
+        "visitTime": "November-February",
+        "stay":{
+            "first":"Nazimgarh Wilderness Resort",
+            "second":"The Grand Hotel B.D.",
+            "third":"Hotel Mira Garden"
+        }
+    },
+    { 
+        "service_id": "06",
+        "title": "Bandarban",
+        "img": "https://www.daily-sun.com/assets/news_images/2016/06/27/Daily-Sun-Magazine-18.jpg",
+        "price": "420.00",
+        "description": "In the past few years, Bandarban has gained extreme popularity as one of the beautiful tourist places in Bangladesh. Bandarban is a hill district of Chittagong Division. It is mainly famous for the exotic tourist attractions like- Boga Lake, Nilachol, Meghla Hanging Bridge, Keokradong peak, several Buddhist temples and many waterfalls. Located in the Ruma Upazila of Bandarban, Boga Lake is a natural deep lake filled with sweet water. It is not allowed to swim in the lake because many deaths have been caused due to it. At the further east of the lake, Keokradong peak is the 5th highest peak in Bangladesh. The most famous waterfalls in Bandarban are Jadipai, Nafakhum, and Amiakhum. Out of numerous Buddhist temples of Bandarban, the Theravada Buddhist temple is the most popular to tourists. As I said, there are numerous tourist attractions in Bandarban, so there are also many exciting things to do. You can have a boat ride in Boga Lake, hike in Keokradong, and sightsee the waterfalls. As Bandarban is a hilly area, so to enjoy most of the tourist attractions, you have to do a lot of hiking and trekking.        ",
+        "visitTime": "During Winter, that is November-February",
+        "stay":{
+            "first":"Hotel Plaza",
+            "second":"Hotel Hill View ",
+            "third":"Hotel  Night Heaven "
+        }
+    },
+    { 
+        "service_id": "07",
+        "title": "Kuakata",
+        "img": "https://thesimpletravel.com/wp-content/uploads/2022/02/Kuakata.jpg?ezimgfmt=ng:webp/ngcb2",
+        "price": "520.00",
+        "description": "Kuakata, known as Daughter of The Sea, is one of Bangladesh’s most scenic tourist places. This panoramic sea beach is located in the southern part of Bangladesh. The beach is around 18 kilometres in length and 3 kilometres in width. The most beautiful thing about Kuakata is that you can get an unhindered view of both sunset and sunrise from the beach. Kuakata is home to some other tourist attractions like- Mishri Para Buddhist Monastery, Well of Kuakata, Keranipara Rakhaine settlement, Alipur Port, Fatra forest, Kuakata Eco Park, Kuakata National Park, etc.As I said earlier, the Kuakata sea beach offers a mesmerizing view of unobstructed sunset and sunrise. So, you must check out the beautiful sunset and sunrise when you are in Kuakata. You can visit the nearby tourist attractions that I mentioned above to make the most out of your travel experience. ",
+        "visitTime": "Around the year. But Winter is the best choice.",
+        "stay":{
+            "first":"Hotel Graver Inn International",
+            "second":"Hotel Khan Palace",
+            "third":"Sawpnorajjo Park & Resort"
+        }
+    },
+    { 
+        "service_id": "08",
+        "title": "Sajek Valley",
+        "img": "https://thesimpletravel.com/wp-content/uploads/2022/02/Sajek-Valley.jpg?ezimgfmt=ng:webp/ngcb2",
+        "price": "470.00",
+        "description": "Sajek Valley is one of the most exotic tourist places in Bangladesh. The valley is located in Baghaichhari Upazila of Rangamati District. The floating clouds, green hills, and calming natural beauty make this place attractive to both local and international tourists.There are many notable tourist attractions in Sajek Valley like- Konglak Pahar, Risang Waterfall, Alutila Cave, Lushai Heritage Village, Ruilui Para etc. As Sajek Valley is a mountainous area, you can do a lot of hiking and trekking here. You can trek through the Risang waterfall or bath below it. You can take a look inside the mysterious Alutila Cave. You can hike up to Konglak Pahar to get the most mesmerizing view from the top of the mountain. You can also have a walk around the neighbourhoods to get an idea about the lifestyle of ethnic people living there.",
+        "visitTime": "During Winter,that is mid-November.",
+        "stay":{
+            "first":"Ruilui Resort ",
+            "second":"Sajek Army Resort",
+            "third":"TGB Lushai Cottage"
+        }
+    },
+    { 
+        "service_id": "09",
+        "title": "Lalbagh Fort",
+        "img": "https://thesimpletravel.com/wp-content/uploads/2022/02/Lalbagh-fort.jpg?ezimgfmt=ng:webp/ngcb2",
+        "price": "190.00",
+        "description": "The Lalbagh fort is famous as one of the historical tourist places in Bangladesh due to its beautiful Mughal architecture. It is located in the capital city of Bangladesh, Dhaka. The fort is divided into three main parts- the Tomb of Pari Bibi, Diwan-i-Aam, and Quilla Mosque. The tomb of Pari Bibi was constructed in memory of Pari Bibi, the daughter of Shaista Khan. The tomb is a white marble room in the middle of the fort. There are eight rooms surrounding this central room. The Diwan-i-Aam is a two-storied residence located on the east side of the fort. Out of seven bathhouses of the Diwan-i-Aam, only one Hamam Khana(bathhouse) still exists in the southern part of the fort. The bathhouses had underground water boiling rooms, and water was supplied to the Hammamkhana through terracotta pipes. The Quilla Mosque, also known as Lalbagh fort mosque, has three domes with a water tank for ablutions in front. The mosque is divided from the fort with a fence so that people can enter the mosque and pray without any ticket.",
+        "visitTime": " You can visit at any time of the year. ",
+        "stay":{
+            "first":"Hotel 71",
+            "second":"Priyo Nibash Stylish Residential Hotel ",
+            "third":"InterContinental Dhaka"
+        }
+    }
+]

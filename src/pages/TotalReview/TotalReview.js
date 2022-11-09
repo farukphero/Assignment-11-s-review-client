@@ -5,6 +5,14 @@ const TotalReview = ({review}) => {
     return (
         <div className=" mt-5">
          <div className="card bg-base-100 shadow-xl">
+         <div className="card-actions justify-end">
+              <button
+                // onClick={() => handleUpdate(_id)}
+                className="btn btn-primary"
+              >
+                Delete
+              </button>
+            </div>
          <div className="card-body">
            <div className="flex">
            <img className="h-12 w-12 rounded-full mr-5" src={img} alt="" />

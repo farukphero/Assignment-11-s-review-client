@@ -1,10 +1,10 @@
 import React, { useContext,useEffect, useState } from 'react';
-import { FaUserCircle} from "@react-icons/all-files/fa/FaUserCircle";
+
 import { AuthContext } from '../../contexts/AuthProvider';
 import './MyReview.css'
 import TotalReview from '../TotalReview/TotalReview';
 const MyReview = () => {
-    const {user} = useContext(AuthContext)
+    
 
     const [allReviews, setAllReviews] = useState([]);
     useEffect ((id) => {
@@ -29,38 +29,7 @@ const MyReview = () => {
               allReviews.map(review=><TotalReview key={review._id} review={review}></TotalReview> )
             }
         </div>
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-            <div>
-        <h1>Review section:-</h1>
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title">{user?.photoURL ? <img title={user?.displayName} className="h-12 w-12 rounded-full mr-5 mt-0" src={user?.photoURL} alt="" />:
-          <FaUserCircle className="h-12 w-12 text-white"/>
-          }{
-            user &&
-             <>
-             <h1>{user?.displayName}</h1>
-             </>
-             
-          }</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            
-          </div>
-        </div>
-      </div>
+ 
         </div>
     );
 };
