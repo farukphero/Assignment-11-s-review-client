@@ -38,11 +38,9 @@ const ServiceDetails = () => {
             <div>
               <h1 className="text-5xl md:text-8xl font-bold">{title}</h1>
               <p className="mt-5 font-semibold">
-                {" "}
                 <span className="text-amber-400">Price:$</span> {price}
               </p>
               <p>
-                {" "}
                 <span className="text-amber-400 mt-5">Situated: </span>
                 {situated}
               </p>
@@ -51,8 +49,8 @@ const ServiceDetails = () => {
         </div>
         <p className="py-6">
           <span className="text-2xl font-bold text-amber-400">
-            {" "}
-            About {title}{" "}
+         
+            About {title}
           </span>
           <br /> {description}
         </p>

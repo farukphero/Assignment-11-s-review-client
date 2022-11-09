@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+ 
 
 const AddServices = () => {
-  const [newService, setNewService] = useState([])
-
- useEffect(()=>{
-    
- },[])
-
-
+ 
     const handleAddService=(event)=>{
        event.preventDefault()
        const form= event.target;
@@ -15,12 +10,21 @@ const AddServices = () => {
        const photoURL = form.photoURL.value
        const price = form.price.value
        const email = form.email.value
-       const serviceMessage = form. serviceMessage.value
+       const serviceMessage = form.serviceMessage.value 
 
+       const newServices = {name,photoURL,price, email, serviceMessage}
        console.log(name, photoURL, price ,email, serviceMessage)
+       fetch('http://localhost:5000/newServices',{
+        method:'POST',
+        headers:{
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(newServices)
 
-
- 
+       })
+       .then(res=>res.json())
+       .then(data=> console.log(data))
+       .catch(error=> console.log(error))
  
  
     }
@@ -45,10 +49,11 @@ const AddServices = () => {
 <input type="text"  name='price'placeholder="Price" className="input w-full" />
 <input type="email" name='email' placeholder="Email" className="input w-full" />
 <textarea className="textarea min-h-16" name='serviceMessage' placeholder="Describe about service" required></textarea>
-   <button className="btn btn-primary">Sunmit</button>
+   <button className="btn btn-primary">Submit</button>
 </form>
 </div>
 </div>
+ 
 </div>
   );
 };
