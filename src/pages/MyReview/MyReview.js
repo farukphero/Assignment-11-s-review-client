@@ -1,9 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect, useState } from 'react';
 import { FaUserCircle} from "@react-icons/all-files/fa/FaUserCircle";
 import { AuthContext } from '../../contexts/AuthProvider';
 import './MyReview.css'
+import TotalReview from '../TotalReview/TotalReview';
 const MyReview = () => {
     const {user} = useContext(AuthContext)
+
+    const [allReviews, setAllReviews] = useState([]);
+    useEffect ((id) => {
+      fetch(`http://localhost:5000/reviews`)
+        .then((res) => res.json())
+        .then((data) =>setAllReviews(data));
+    }, []);
     return (
         <div>
               <div >
@@ -17,6 +25,9 @@ const MyReview = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-0 md:mx-10 my-10'>
              
             </div>
+            {
+              allReviews.map(review=><TotalReview key={review._id} review={review}></TotalReview> )
+            }
         </div>
 
 

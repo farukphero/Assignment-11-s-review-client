@@ -9,10 +9,11 @@ import 'react-toastify/dist/ReactToastify.css';
 const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
+  // const [disabled, setDisabled] =useState(false)
   const singleCourse = useLoaderData();
-  const { img, description, price, situated, title } = singleCourse;
+  const {img, description, price, situated, title } = singleCourse;
 
-  const handleReview = (event) => {
+  const handleReview = ({event, id}) => {
     event.preventDefault();
     const form = event.target;
     const title = form.name.value;
@@ -22,7 +23,7 @@ const ServiceDetails = () => {
     const description = form.serviceMessage.value;
 
     const reviews = {title, img, email, situated, description };
-    fetch("http://localhost:5000/reviews", {
+    fetch(`http://localhost:5000/reviews/${id}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -30,14 +31,15 @@ const ServiceDetails = () => {
       body: JSON.stringify(reviews),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => (data))
+      toast('Thanks for your review.')
       .catch((error) => console.log(error));
   };
 
-  useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+  useEffect((id) => {
+    fetch(`http://localhost:5000/reviews`)
       .then((res) => res.json())
-      .then((data) => setReviews(data));
+      .then((data) =>setReviews(data));
   }, []);
   const handleDelete = (id) => {
     const proceed = window.confirm(" Are you sure?");
@@ -93,7 +95,7 @@ const ServiceDetails = () => {
           
         ))
         }
-        <ToastContainer />
+        <ToastContainer  />
 
         <div>
           <div className="card w-full md:w-3/4 mx-auto bg-amber-300 shadow-xl mt-16">
@@ -115,9 +117,10 @@ const ServiceDetails = () => {
               <input
                 type="email"
                 name="email"
+                defaultValue={user?.email}
                 placeholder="email"
                 className="input w-full"
-                required
+                 readOnly
               />
               <input
                 type="text"

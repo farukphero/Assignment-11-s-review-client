@@ -54,10 +54,10 @@ const AddServices = () => {
 <div className="card w-full md:w-3/4 mx-auto bg-amber-300 shadow-xl mt-16">
 <form onSubmit={handleAddService} className="card-body">
    
-<input type="text" name='name'placeholder="Full Name" className="input w-full" required/>
+<input type="text" name='name'placeholder="Title" className="input w-full" required/>
 <input type="text" name='photoURL'placeholder="PhotoURL" className="input w-full" required/>
 <input type="text" name='price'placeholder="Price" className="input w-full" required/>
-<input type="text" name='place' placeholder="place" className="input w-full" required/>
+<input type="text" name='place' placeholder="Location" className="input w-full" required/>
 <textarea className="textarea min-h-16" name='serviceMessage' placeholder="Describe about service" required></textarea>
  <p>{error}</p>
    <button className="btn btn-primary">Submit</button>
