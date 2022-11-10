@@ -3,11 +3,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../images/login/login.svg'
 import { AuthContext } from "../../contexts/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import useTitle from "../../hooks/useTitle";
 
 const SignIn = () => {
   const { loading} = useContext(AuthContext)
   const navigate = useNavigate();
   const location = useLocation();
+
+  useTitle('signin')
 
   const from = location.state?.from?.pathname || "/";
   const {accountSignIn,providerGoogleLogIn}= useContext(AuthContext)
@@ -24,7 +27,23 @@ const SignIn = () => {
     accountSignIn(email, password)
       .then((result) => {
         const user = result.user;
-        navigate(from, { replace: true });
+        const currentUser ={
+          email : user.email,
+        }
+
+        fetch('https://fly-plane-web-server.vercel.app/jwt',{
+          method:"POST",
+          headers:{
+            'content-type':'application/json'
+          },
+          body:JSON.stringify(currentUser)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          localStorage.setItem('token', data.token)
+          console.log(data)
+          navigate(from, { replace: true });
+        })
         console.log(user);
         
       })
@@ -71,16 +90,16 @@ const SignIn = () => {
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
-              <input type="email" name="email" placeholder="email" className="input input-bordered" />
+              <input type="email" name="email" placeholder="email" className="input input-bordered" required/>
             </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
-              <input type="password" name="password" placeholder="password" className="input input-bordered" />
+              <input type="password" name="password" placeholder="password" className="input input-bordered" required/>
               <label className="label">
                 <h1>Haven't an account? 
-                <Link to='/signup' className="label-text-alt link link-hover">Sign Up</Link></h1>
+                <Link to='/signup' className="label-text-alt link link-hover text-blue-400 text-xl hover:text-blue-500">Sign Up</Link></h1>
               </label>
             </div>
             <p>{error}</p>

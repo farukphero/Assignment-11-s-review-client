@@ -4,6 +4,7 @@ import image from '../../images/login/login.svg'
 import { AuthContext } from "../../contexts/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../hooks/useTitle';
 
 
 const SignUp = () => {
@@ -11,7 +12,7 @@ const SignUp = () => {
   const { createUserByEmail,updateName, loading} =  useContext(AuthContext);
   const navigate = useNavigate()
      
-
+useTitle('signup')
   const handleEmailPassword = (event) => {
     event.preventDefault();
 
@@ -77,33 +78,33 @@ const SignUp = () => {
               <label className="label">
                 <span className="label-text">Name</span>
               </label>
-              <input type="text" name='name' placeholder="name" className="input input-bordered" />
+              <input type="text" name='name' placeholder="name" className="input input-bordered" required/>
             </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">PhotoURL</span>
               </label>
-              <input type="text" name='photoURL' placeholder="photoURL" className="input input-bordered" />
+              <input type="text" name='photoURL' placeholder="photoURL" className="input input-bordered" required/>
             </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
-              <input type="email" name="email" placeholder="email" className="input input-bordered" />
+              <input type="email" name="email" placeholder="email" className="input input-bordered" required/>
             </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
-              <input type="password" name="password" placeholder="password" className="input input-bordered" />
+              <input type="password" name="password" placeholder="password" className="input input-bordered" required/>
               <label className="label">
                 <p>Already have an account?
-                <Link to='/signin' className="label-text-alt link link-hover">Sign In</Link></p>
+                <Link to='/signin' className="label-text-alt link link-hover text-blue-400 text-xl">Sign In</Link></p>
               </label>
             </div>
             <p className='text-black'>{passwordError}</p>
             <div className="form-control mt-6">
-               <button  className='btn btn-primary'>submit</button>
+               <button  className='btn btn-primary'>Sign Up</button>
             </div>
           </form>
         </div>

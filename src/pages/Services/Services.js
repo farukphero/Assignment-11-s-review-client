@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import Service from '../Service/Service';
 
 const Services = () => {
+    useTitle('services')
     const {loading} = useContext(AuthContext)
     const [services, setServices] = useState([])
      useEffect(()=>{
-        fetch('http://localhost:5000/allServices')
+        fetch('https://fly-plane-web-server.vercel.app/allServices')
         .then(res=>res.json())
         .then(data=> {
             setServices(data)

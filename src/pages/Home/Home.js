@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 import Banner from '../Banner/Banner';
 import Packages from '../Packages/Packages';
 import ServiceHome from '../ServiceHome/ServiceHome';
+import Subscribe from '../Subscribe/Subscribe';
 
 const Home = () => {
     const [services, setServices] = useState([])
      useEffect(()=>{
-        fetch('http://localhost:5000/services')
+        fetch('https://fly-plane-web-server.vercel.app/services')
         .then(res=>res.json())
         .then(data=> setServices(data))
      },[])
 
- 
+  useTitle('home')
     return (
         <div> 
             <Banner></Banner>
@@ -25,6 +27,7 @@ const Home = () => {
        <button className="btn btn-active btn-ghost px-6 py-4 rounded text-black mt-10"><Link to='/services'>See All</Link></button>
        </div>
        <Packages></Packages>
+       <Subscribe></Subscribe>
         </div>
     );
 };

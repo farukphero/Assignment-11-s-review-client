@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import image from "../../images/png-clipart-icon-design-social-media-favicon-icon-aircraft-television-angle-thumbnail.png"
 import { FaUserCircle} from "@react-icons/all-files/fa/FaUserCircle";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { FaBeer, FaLongArrowAltRight, FaArrowRight } from 'react-icons/fa';
 
 
 const Header = () => {
@@ -23,6 +24,7 @@ const Header = () => {
           <div>
                {
                 user ? <>
+                     <FaArrowRight className="text-white mr-2 text-3xl" />
                 </> :<Link to='/signin' className="text-white mr-6 text-2xl font-semibold">Sign In</Link>
                }
                </div>
@@ -39,7 +41,8 @@ const Header = () => {
                 
                </div>
               </label>
-              <ul
+              {
+                user?<ul
                 tabIndex={0}
                 className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
               >
@@ -55,7 +58,8 @@ const Header = () => {
                 <li>
                   <button onClick={handleLogOut}>Logout</button>
                 </li>
-              </ul>
+              </ul>:<></>
+              }
             </div>
           </div>
         </div>

@@ -1,16 +1,14 @@
-import React, { useContext,useEffect, useState } from 'react';
-
-import { AuthContext } from '../../contexts/AuthProvider';
+import React from 'react';
+import { useLoaderData } from "react-router-dom";
+import useTitle from '../../hooks/useTitle';
+import Reviews from '../Reviews/Reviews';
 import './MyReview.css'
-import TotalReview from '../TotalReview/TotalReview';
+ 
 const MyReview = () => {
+useTitle('myreview')
+  const reviews = useLoaderData()
+  console.log(reviews)
   
-    const [allReviews, setAllReviews] = useState([]);
-    useEffect ((id) => {
-      fetch(`http://localhost:5000/reviews`)
-        .then((res) => res.json())
-        .then((data) =>setAllReviews(data));
-    }, []);
     return (
         <div>
               <div >
@@ -21,12 +19,13 @@ const MyReview = () => {
                 <img className='w-full h-96' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVyeoA9FFvyxtBYdyMxfuNcEbVHTEFvNSP6bWleuWg_pJhGTxTvpE6ucd5_BXzAa6IHpA&usqp=CAU" alt="" />
               <p className='absolute top-52 left-0 md:left-28 text-indigo-500 text-3xl md:text-6xl font-semibold'>See All Review</p>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-0 md:mx-10 my-10'>
-             
+          
+            <div>
+             {
+              reviews.map(review=><Reviews key={review._id} review={review}></Reviews>)
+             }
             </div>
-            {
-              allReviews.map(review=><TotalReview key={review._id} review={review}></TotalReview> )
-            }
+             
         </div>
  
         </div>
