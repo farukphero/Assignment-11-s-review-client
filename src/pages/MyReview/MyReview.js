@@ -4,8 +4,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import './MyReview.css'
 import TotalReview from '../TotalReview/TotalReview';
 const MyReview = () => {
-    
-
+  
     const [allReviews, setAllReviews] = useState([]);
     useEffect ((id) => {
       fetch(`http://localhost:5000/reviews`)

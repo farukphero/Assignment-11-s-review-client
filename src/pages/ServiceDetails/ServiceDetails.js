@@ -21,8 +21,10 @@ const ServiceDetails = () => {
     const situated = form.place.value;
     const description = form.serviceMessage.value;
     const identifier = _id;
+    const image = singleCourse.img
+    const name =singleCourse.title
 
-    const reviews = { title, img, email, situated, description, identifier };
+    const reviews = { title, img, email, situated, description, identifier,image,name };
     fetch('http://localhost:5000/reviews', {
       method: "POST",
       headers: {
@@ -33,7 +35,7 @@ const ServiceDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
-        const newReview=[...userReviews, data]
+        const newReview=[...userReviews, reviews]
         console.log(newReview)
         setUserReviews(newReview)
       });
@@ -48,25 +50,7 @@ const ServiceDetails = () => {
       // console.log(data)
     })
       .catch(error=> console.log(error))
-  }, []);
-
-
-  const handleUpdate =()=>{
-    // event.preventDefault();
-   fetch(`http://localhost:5000/reviews/${_id}`,{
-    method:"PUT",
-    headers:{
-           "content-type": "application/json",
-    },
-    body: JSON.stringify(userReviews),
-   })
-
-
-   .then(res=>res.json())
-   .then(data=> console.log(data))
-
-  }
-
+  }, [_id]);
 
 
   const handleDelete = (id) => {
@@ -119,13 +103,15 @@ const ServiceDetails = () => {
             key={review._id}
             review={review}
             handleDelete={handleDelete}
-            handleUpdate={handleUpdate}
+            userReviews={userReviews}
+            setUserReviews={setUserReviews}
+            // handleUpdate={handleUpdate}
           ></Reviews>
         ))}
         <ToastContainer />
 
         <div>
-          <div className="card w-full md:w-3/4 mx-auto bg-amber-300 shadow-xl mt-16">
+          <div className="card w-full md:w-3/4 mx-auto bg-base-300 shadow-xl mt-16">
             <form onSubmit={handleReview} className="card-body">
               <input
                 type="text"
@@ -198,7 +184,12 @@ const ServiceDetails = () => {
           <span className="text-2xl font-semibold mt-5">Where To Stay in {title}</span>  : <br />
           There are many hotels & resort near the {title} where you can stay. I am mentioning some of the best hotels & resort near {title} below.
           <br />
-          
+          <ul>
+          <li>{stay.first}</li>
+          <li>{stay.second}</li>
+          <li>{stay.third}</li>
+          </ul>
+          {/* {stay} */}
         </h1>
       </div>
     </div>

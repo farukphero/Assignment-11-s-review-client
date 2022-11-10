@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const AddServices = () => {
      const [error, setError] = useState("")
+     const [addServices, setAddServices] = useState([])
      const navigate = useNavigate()
     const handleAddService=(event)=>{
        event.preventDefault()
@@ -33,7 +34,10 @@ const AddServices = () => {
 
        })
        .then(res=>res.json())
-       .then(data=> console.log(data))
+       .then(data=> {
+        const newAddService=[...addServices, data]
+        setAddServices(newAddService)
+        console.log(data)})
        .catch(error=> console.log(error))
  
  

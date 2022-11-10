@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Banner from '../Banner/Banner';
+import Packages from '../Packages/Packages';
 import ServiceHome from '../ServiceHome/ServiceHome';
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
            <div className="text-center">
        <button className="btn btn-active btn-ghost px-6 py-4 rounded text-black mt-10"><Link to='/services'>See All</Link></button>
        </div>
+       <Packages></Packages>
         </div>
     );
 };
