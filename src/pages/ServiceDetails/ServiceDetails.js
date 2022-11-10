@@ -198,9 +198,7 @@ const ServiceDetails = () => {
           <span className="text-2xl font-semibold mt-5">Where To Stay in {title}</span>  : <br />
           There are many hotels & resort near the {title} where you can stay. I am mentioning some of the best hotels & resort near {title} below.
           <br />
-          <li>{stay.first}</li>
-          <li>{stay.second}</li>
-          <li>{stay.third}</li>
+          
         </h1>
       </div>
     </div>
