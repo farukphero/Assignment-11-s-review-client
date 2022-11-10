@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Reviews = ({ review }) => {
+const Reviews = ({ review,userReviews,setUserReviews,handleDelete }) => {
   const { _id, title, img, image, description, name } = review;
 
-  const [userReviews, setUserReviews] = useState([]);
+ 
   const handleUpdate = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -36,23 +36,7 @@ const Reviews = ({ review }) => {
       });
   };
   console.log(review);
-  const handleDelete = (id) => {
-    const proceed = window.confirm(" Are you sure?");
-    if (proceed) {
-      fetch(`https://fly-plane-web-server.vercel.app/reviews/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.deletedCount > 0) {
-            // toast("Successfully Delete");
-            const remaining = userReviews.filter((rev) => rev._id !== id);
-            setUserReviews(remaining);
-          }
-        });
-    }
-  };
+  
 
   return (
     <div>
