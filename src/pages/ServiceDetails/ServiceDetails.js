@@ -28,7 +28,7 @@ const ServiceDetails = () => {
     const name =singleCourse.title
 
     const reviews = { title, img, email, situated, description, identifier,image,name };
-    fetch('http://localhost:5000/reviews', {
+    fetch('https://fly-plane-web-server.vercel.app/reviews', {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -47,7 +47,7 @@ const ServiceDetails = () => {
   };
 
   useEffect((id) => {
-    fetch(`http://localhost:5000/allReviews/${_id}`,{
+    fetch(`https://fly-plane-web-server.vercel.app/allReviews/${_id}`,{
     })
       .then((res) => res.json())
       .then((data) => {setUserReviews(data)

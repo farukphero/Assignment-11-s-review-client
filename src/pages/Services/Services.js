@@ -8,7 +8,7 @@ const Services = () => {
   const { loading } = useContext(AuthContext);
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allServices")
+    fetch("https://fly-plane-web-server.vercel.app/allServices")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);

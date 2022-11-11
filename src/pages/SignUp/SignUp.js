@@ -36,7 +36,7 @@ useTitle('signup')
         const currentUser = {
           email : user.email
       }
-        fetch('http://localhost:5000/jwt',{
+        fetch('https://fly-plane-web-server.vercel.app/jwt',{
           method:"POST",
           headers:{
             'content-type':'application/json'

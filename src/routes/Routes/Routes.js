@@ -52,7 +52,7 @@ export const router = createBrowserRouter([
     {
       path: "servicedetails/:id",
       element:  <ServiceDetails></ServiceDetails> ,
-      loader:({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+      loader:({params})=> fetch(`https://fly-plane-web-server.vercel.app/services/${params.id}`)
     },
     {
       path: "*",

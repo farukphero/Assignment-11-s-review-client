@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Reviews = ({ review, handleDelete, reviews, setReviews }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { _id, title, img, image, description, name } = review;
   const handleUpdatedReview = (event) => {
     event.preventDefault();
@@ -13,7 +13,7 @@ const Reviews = ({ review, handleDelete, reviews, setReviews }) => {
     console.log(description);
     const review = { description };
     console.log(review);
-    fetch(`http://localhost:5000/allReviews/${_id}`, {
+    fetch(`https://fly-plane-web-server.vercel.app/allReviews/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -27,7 +27,7 @@ const Reviews = ({ review, handleDelete, reviews, setReviews }) => {
           const fil = reviews.filter((rev) => rev._id !== _id);
           const newUpdateReview = [...reviews, fil];
           setReviews(newUpdateReview);
-          navigate(`/servicedetails/${_id}`)
+          navigate(`/servicedetails/${_id}`);
           toast("Updated");
           event.target.reset();
         }
@@ -66,7 +66,7 @@ const Reviews = ({ review, handleDelete, reviews, setReviews }) => {
                     ></textarea>
                     {/* <p>{error}</p> */}
                     <button htmlFor="my-modal" className="btn btn-primary">
-                     Update 
+                      Update
                     </button>
                   </form>
                   <div className="modal-action">

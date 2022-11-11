@@ -26,7 +26,7 @@ const AddServices = () => {
         alert('Wow! successfully added service')
         navigate('/services')
        }
-       fetch('http://localhost:5000/services',{
+       fetch('https://fly-plane-web-server.vercel.app/services',{
         method:'POST',
         headers:{
           'content-type': 'application/json'
