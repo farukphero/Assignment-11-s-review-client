@@ -39,7 +39,6 @@ const ServiceDetails = () => {
       .then((data) => {
         console.log(data)
         const newReview=[reviews,...userReviews]
-        console.log(newReview)
         setUserReviews(newReview)
       });
       toast("Thanks for your review.")

@@ -3,7 +3,7 @@ import React from "react";
 const Packages = () => {
   return (
    <div>
-    <h1 className="text-center text-5xl font-bold mt-12">Select Affordable Prices</h1>
+    <h1 className="text-center text-3xl md:text-5xl font-bold mt-12 px-2">Select Affordable Prices</h1>
     <p className="text-center mb-12 mt-4 text-xl">Educated, intellectual people, especially scientists at all times demonstrate considerably.</p>
      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       <div>

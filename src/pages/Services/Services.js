@@ -24,7 +24,7 @@ const Services = () => {
           alt=""
         />
         <p className="absolute top-52 left-0 md:left-28 text-white text-3xl md:text-6xl font-semibold">
-          {" "}
+          
           Select Your Desired Place
         </p>
       </div>

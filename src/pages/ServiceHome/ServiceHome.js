@@ -7,7 +7,7 @@ const ServiceHome = ({ service }) => {
   const { _id, img, description, title, price, visitTime } = service;
   return (
     <div>
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card  bg-base-100 shadow-xl">
         <PhotoProvider>
           <PhotoView src={img}>
             <img className="h-64 rounded" src={img} alt="" />
