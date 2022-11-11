@@ -27,13 +27,12 @@ export const router = createBrowserRouter([
         
         {
           path: "/blog",
-        element:<PrivateRoute><Blog></Blog></PrivateRoute>,
+        element:<Blog></Blog>,
         },
-        //
         {
           path: "/myreview",
           element:<PrivateRoute><MyReview></MyReview></PrivateRoute>,
-          loader:({params})=>fetch(`https://fly-plane-web-server.vercel.app/reviews`)
+        
         },
         {
           path: "/addservices",
@@ -53,7 +52,7 @@ export const router = createBrowserRouter([
     {
       path: "servicedetails/:id",
       element:  <ServiceDetails></ServiceDetails> ,
-      loader:({params})=> fetch(`https://fly-plane-web-server.vercel.app/services/${params.id}`)
+      loader:({params})=> fetch(`http://localhost:5000/services/${params.id}`)
     },
     {
       path: "*",

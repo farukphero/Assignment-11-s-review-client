@@ -8,7 +8,7 @@ const AddServices = () => {
      const [error, setError] = useState("")
      const [addServices, setAddServices] = useState([])
      const navigate = useNavigate()
-     useTitle('addservices')
+     useTitle('AddServices')
     const handleAddService=(event)=>{
        event.preventDefault()
        const form= event.target;
@@ -26,8 +26,7 @@ const AddServices = () => {
         alert('Wow! successfully added service')
         navigate('/services')
        }
-      //  console.log(name, photoURL, price ,email, serviceMessage)
-       fetch('https://fly-plane-web-server.vercel.app/services',{
+       fetch('http://localhost:5000/services',{
         method:'POST',
         headers:{
           'content-type': 'application/json'

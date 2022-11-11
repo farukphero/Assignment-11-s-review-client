@@ -5,11 +5,13 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useTitle from '../../hooks/useTitle';
+import SocialSignIn from '../../shared/SocialSignIn/SocialSignIn';
 
 
 const SignUp = () => {
   const [passwordError, setPasswordError] = useState("");
   const { createUserByEmail,updateName, loading} =  useContext(AuthContext);
+  
   const navigate = useNavigate()
      
 useTitle('signup')
@@ -31,6 +33,21 @@ useTitle('signup')
     createUserByEmail(email, password)
       .then((result) => {
         const user = result.user;
+        const currentUser = {
+          email : user.email
+      }
+        fetch('http://localhost:5000/jwt',{
+          method:"POST",
+          headers:{
+            'content-type':'application/json'
+          },
+          body:JSON.stringify(currentUser)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          localStorage.setItem('token', data.token)
+           
+        })
         updateName()
         navigate('/')
         toast("Wow so easy!")
@@ -43,6 +60,7 @@ useTitle('signup')
       });
 
   };
+ 
   const handleUpdateProfile = (name, photoURL) => {
     const profileName = { displayName: name, photoURL: photoURL };
     updateName(profileName)
@@ -102,9 +120,13 @@ useTitle('signup')
                 <Link to='/signin' className="label-text-alt link link-hover text-blue-400 text-xl">Sign In</Link></p>
               </label>
             </div>
-            <p className='text-black'>{passwordError}</p>
+            <p className='text-red-300'>{passwordError}</p>
             <div className="form-control mt-6">
                <button  className='btn btn-primary'>Sign Up</button>
+               <div  >
+
+               <SocialSignIn></SocialSignIn>
+               </div>
             </div>
           </form>
         </div>

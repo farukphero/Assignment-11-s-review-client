@@ -2,19 +2,18 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../images/login/login.svg'
 import { AuthContext } from "../../contexts/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
 import useTitle from "../../hooks/useTitle";
+import SocialSignIn from "../../shared/SocialSignIn/SocialSignIn";
 
 const SignIn = () => {
   const { loading} = useContext(AuthContext)
   const navigate = useNavigate();
   const location = useLocation();
 
-  useTitle('signin')
+  useTitle('SignIn')
 
   const from = location.state?.from?.pathname || "/";
-  const {accountSignIn,providerGoogleLogIn}= useContext(AuthContext)
-  const googleProvider = new GoogleAuthProvider();
+  const {accountSignIn}= useContext(AuthContext)
   const [error, setError] = useState("");
 
   const handleSignIn = (event) => {
@@ -31,7 +30,7 @@ const SignIn = () => {
           email : user.email,
         }
 
-        fetch('https://fly-plane-web-server.vercel.app/jwt',{
+        fetch('http://localhost:5000/jwt',{
           method:"POST",
           headers:{
             'content-type':'application/json'
@@ -46,18 +45,6 @@ const SignIn = () => {
         })
         console.log(user);
         
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
-  };
-
-  const handleGoogleSignIn = () => {
-    providerGoogleLogIn(googleProvider)
-      .then((result) => {
-        const user = result.user;
-        navigate(from, { replace: true });
-        console.log(user);
       })
       .catch((error) => {
         setError(error.message);
@@ -102,10 +89,10 @@ const SignIn = () => {
                 <Link to='/signup' className="label-text-alt link link-hover text-blue-400 text-xl hover:text-blue-500">Sign Up</Link></h1>
               </label>
             </div>
-            <p>{error}</p>
+            <p className="text-red-300">{error}</p>
             <div className="form-control mt-6">
                 <button className="btn btn-primary">Sign In</button>
-                <button onClick={handleGoogleSignIn} className="btn mt-6">Google</button>
+                <SocialSignIn></SocialSignIn>
             </div>
           </form>
         </div>

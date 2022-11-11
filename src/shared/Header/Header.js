@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import image from "../../images/png-clipart-icon-design-social-media-favicon-icon-aircraft-television-angle-thumbnail.png"
 import { FaUserCircle} from "@react-icons/all-files/fa/FaUserCircle";
 import { AuthContext } from "../../contexts/AuthProvider";
-import { FaBeer, FaLongArrowAltRight, FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 
 
 const Header = () => {

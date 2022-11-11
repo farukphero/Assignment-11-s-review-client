@@ -1,59 +1,63 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Reviews = ({ review,userReviews,setUserReviews,handleDelete }) => {
+const Reviews = ({ review, handleDelete, reviews, setReviews }) => {
+  const navigate = useNavigate()
   const { _id, title, img, image, description, name } = review;
-
- 
-  const handleUpdate = (event) => {
+  const handleUpdatedReview = (event) => {
     event.preventDefault();
     const form = event.target;
-    const title = form.name.value;
-    const img = form.photoURL.value;
-    const email = form.email.value;
-    const situated = form.place.value;
     const description = form.serviceMessage.value;
-    console.log( title,img,email,situated,description)
-    const reviews = { title, img, email, situated, description };
-    fetch(`https://fly-plane-web-server.vercel.app/reviews/${_id}`, {
+    console.log(description);
+    const review = { description };
+    console.log(review);
+    fetch(`http://localhost:5000/allReviews/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(reviews),
+      body: JSON.stringify(review),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-
         if (data.modifiedCount > 0) {
-          //   const fil = userReviews.filter(rev=> rev._id !== _id)
-          const newUpdateReview = [...userReviews, reviews];
-          setUserReviews(newUpdateReview);
-          // navigate('/servicedetails')
-          // toast("Updated")
+          const fil = reviews.filter((rev) => rev._id !== _id);
+          const newUpdateReview = [...reviews, fil];
+          setReviews(newUpdateReview);
+          navigate(`/servicedetails/${_id}`)
+          toast("Updated");
           event.target.reset();
         }
       });
   };
-  console.log(review);
-  
 
   return (
-    <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 my-10">
-        <div className="card-body">
-          <div className="card-actions justify-end">
-            {/* The button to open modal */}
-            <label htmlFor="my-modal-4" className="btn">
-              edit
-            </label>
+    <div className=" w-4/5 mx-auto">
+      <div className="card-body">
+        <div className="card-actions justify-end"></div>
+      </div>
 
-            {/* Put this part before </body> tag */}
-            <input type="checkbox" id="my-modal-4" className="modal-toggle" />
-            <label htmlFor="my-modal-4" className="modal cursor-pointer">
-              <label className="modal-box relative" htmlFor="">
-                <div className="card w-full md:w-3/4 mx-auto bg-amber-300 shadow-xl mt-16">
-                  <form onSubmit={handleUpdate} className="card-body">
+      <h1 className="text-2xl font-semibold">{name}</h1>
+      <div className="card card-side bg-base-100 shadow-xl">
+        <figure>
+          <img className="h-52 w-full" src={image} alt="" />
+        </figure>
+        <div className="card-body">
+          <div>
+            <div className="card-actions justify-end">
+              {/* The button to open modal */}
+              <label htmlFor="my-modal" className="btn">
+                Edit
+              </label>
+
+              {/* Put this part before </body> tag */}
+              <input type="checkbox" id="my-modal" className="modal-toggle" />
+              <div className="modal">
+                <div className="modal-box">
+                  <form onSubmit={handleUpdatedReview} className="card-body">
                     <textarea
                       className="textarea min-h-16"
                       name="serviceMessage"
@@ -61,24 +65,33 @@ const Reviews = ({ review,userReviews,setUserReviews,handleDelete }) => {
                       required
                     ></textarea>
                     {/* <p>{error}</p> */}
-                    <button className="btn btn-primary">Submit</button>
+                    <button htmlFor="my-modal" className="btn btn-primary">
+                     Update 
+                    </button>
                   </form>
+                  <div className="modal-action">
+                    <label htmlFor="my-modal" className="btn">
+                      X
+                    </label>
+                  </div>
                 </div>
-              </label>
-            </label>
-          </div>
-          <div className="flex">
-            <img className="h-12 w-12 rounded-full mr-5" src={img} alt="" />
-            <h2 className="card-title">{title}</h2>
+              </div>
+              <ToastContainer />
+            </div>
+            <div className="flex">
+              <img className="h-12 w-12 rounded-full mr-5" src={img} alt="" />
+              <h2 className="card-title">{title}</h2>
+            </div>
           </div>
           <p>{description}</p>
           <div className="card-actions justify-end">
-            <button onClick={handleDelete} className="btn btn-primary">Delete</button>
+            <button
+              onClick={() => handleDelete(_id)}
+              className="btn btn-primary"
+            >
+              Delete
+            </button>
           </div>
-        </div>
-        <div>
-          <h1 className="text-2xl font-semibold">{name}</h1>
-          <img className="h-52 w-full" src={image} alt="" />
         </div>
       </div>
     </div>

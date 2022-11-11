@@ -9,12 +9,12 @@ import Subscribe from '../Subscribe/Subscribe';
 const Home = () => {
     const [services, setServices] = useState([])
      useEffect(()=>{
-        fetch('https://fly-plane-web-server.vercel.app/services')
+        fetch('http://localhost:5000/services')
         .then(res=>res.json())
         .then(data=> setServices(data))
      },[])
 
-  useTitle('home')
+  useTitle('Home')
     return (
         <div> 
             <Banner></Banner>

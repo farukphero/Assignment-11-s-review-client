@@ -9,8 +9,8 @@ import Review from "../Review/Review";
 import useTitle from "../../hooks/useTitle";
 
 const ServiceDetails = () => {
-  useTitle('servicedetails')
-  const { user,logOut } = useContext(AuthContext);
+  useTitle('ServiceDetails')
+  const { user } = useContext(AuthContext);
   const [userReviews, setUserReviews] = useState([]);
   const singleCourse = useLoaderData();
   const {_id, img, description, price, title,visitTime, stay } = singleCourse;
@@ -28,7 +28,7 @@ const ServiceDetails = () => {
     const name =singleCourse.title
 
     const reviews = { title, img, email, situated, description, identifier,image,name };
-    fetch('https://fly-plane-web-server.vercel.app/reviews', {
+    fetch('http://localhost:5000/reviews', {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -38,23 +38,19 @@ const ServiceDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
-        const newReview=[...userReviews, reviews]
+        const newReview=[reviews,...userReviews]
         console.log(newReview)
         setUserReviews(newReview)
       });
       toast("Thanks for your review.")
-      .catch((error) => console.log(error));
+      .catch((error) =>  error.message(error));
   };
 
-  useEffect(() => {
-    fetch(`https://fly-plane-web-server.vercel.app/reviews/${_id}`,{
-      headers:{
-        authorization:`Bearer ${localStorage.getItem('token')}`
-      }
+  useEffect((id) => {
+    fetch(`http://localhost:5000/allReviews/${_id}`,{
     })
       .then((res) => res.json())
       .then((data) => {setUserReviews(data)
-      // console.log(data)
     })
       .catch(error=> console.log(error))
   }, [_id]);
@@ -65,25 +61,10 @@ const ServiceDetails = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-6 gap-4 mt-10">
       <div className="md:col-start-1 md:col-end-5">
-        <h1 className="p-5">Review section:-</h1>
+        <h1 className="p-5 mr-10 text-2xl">See your all review <Link to='/myreview' className="text-blue-400 hover:underline">Click here</Link></h1>
         <div className="card bg-base-100 shadow-xl">
           <div className="card-body">
             <h2 className="card-title">
-              {user?.photoURL ? (
-                <img
-                  title={user?.displayName}
-                  className="h-12 w-12 rounded-full mr-5 mt-0"
-                  src={user?.photoURL}
-                  alt=""
-                />
-              ) : (
-                <FaUserCircle className="h-12 w-12 text-white" />
-              )}
-              {user && (
-                <>
-                  <h1>{user?.displayName}</h1>
-                </>
-              )}
             </h2>
       </div>
       </div>
@@ -92,10 +73,6 @@ const ServiceDetails = () => {
           <Review
             key={rev._id}
             rev={rev}
-            // handleDelete={handleDelete}
-            // userReviews={userReviews}
-            // setUserReviews={setUserReviews}
-            // handleUpdate={handleUpdate}
           ></Review>
         ))}
         <ToastContainer />
@@ -107,7 +84,7 @@ const ServiceDetails = () => {
             type="text"
             name="name"
             placeholder="Full Name"
-            className="input w-full"
+            className="input w-full hidden"
              defaultValue={user?.displayName}
              readOnly
           />
@@ -115,7 +92,7 @@ const ServiceDetails = () => {
             type="text"
             name="photoURL"
             placeholder="PhotoURL"
-            className="input w-full"
+            className="input w-full hidden"
             defaultValue={user?.photoURL}
              readOnly
           />
@@ -124,15 +101,15 @@ const ServiceDetails = () => {
             name="email"
             defaultValue={user?.email}
             placeholder="email"
-            className="input w-full"
+            className="input w-full hidden"
             readOnly
           />
           <input
             type="text"
             name="place"
             placeholder="place"
-            className="input w-full"
-            required
+            className="input w-full hidden"
+             
           />
           <textarea
             className="textarea min-h-16"
@@ -140,10 +117,9 @@ const ServiceDetails = () => {
             placeholder="Describe about service"
             required
           ></textarea>
-          {/* <p>{error}</p> */}
           <button className="btn btn-primary">Submit</button>
         </form>
-      </div>||<h1 className="text-center  text-4xl font-bold mb-24 mt-10"> Please <Link to='/signin' className="hover:underline text-blue-400">signin</Link> to add a review</h1>
+      </div>||<h1 className="text-center  text-4xl font-bold mb-24 mt-10"> Please <Link to='/signin' className="hover:underline text-blue-400">Signin</Link> to add a review</h1>
         
        
        }
@@ -183,7 +159,6 @@ const ServiceDetails = () => {
           <li>{stay?.second}</li>
           <li>{stay?.third}</li>
           </ul>
-          {/* {stay} */} 
         </h1>
       </div>
     </div>
