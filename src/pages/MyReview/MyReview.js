@@ -66,7 +66,7 @@ const MyReview = () => {
         <ToastContainer />
           <h2 className="text-center text-2xl my-5">Total review : {reviews.length}</h2>
           { 
-            reviews.length &&reviews.map((review) => (
+            reviews.length && reviews.map((review) => (
               <Reviews
                 key={review._id}
                 review={review}

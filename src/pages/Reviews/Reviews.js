@@ -27,8 +27,8 @@ const Reviews = ({ review, handleDelete, reviews, setReviews }) => {
           const fil = reviews.filter((rev) => rev._id !== _id);
           const newUpdateReview = [...reviews, fil];
           setReviews(newUpdateReview);
-          navigate(`/servicedetails/${_id}`);
           toast("Updated");
+          navigate('/showreview');
           event.target.reset();
         }
       });
@@ -49,7 +49,7 @@ const Reviews = ({ review, handleDelete, reviews, setReviews }) => {
           <div>
             <div className="card-actions justify-end">
               {/* The button to open modal */}
-              <label htmlFor="my-modal" className="btn">
+              <label htmlFor="my-modal" className="btn btn-outline btn-primary">
                 Edit
               </label>
 
@@ -87,7 +87,7 @@ const Reviews = ({ review, handleDelete, reviews, setReviews }) => {
           <div className="card-actions justify-end">
             <button
               onClick={() => handleDelete(_id)}
-              className="btn btn-primary"
+              className="btn btn-outline btn-primary"
             >
               Delete
             </button>
