@@ -41,17 +41,15 @@ const Reviews = ({ review, handleDelete, reviews, setReviews }) => {
       </div>
 
       <h1 className="text-2xl font-semibold">{name}</h1>
+          <img className="h-52 w-full" src={image} alt="" />
       <div className="card card-side bg-base-100 shadow-xl">
         <figure>
-          <img className="h-52 w-full" src={image} alt="" />
         </figure>
         <div className="card-body">
           <div>
-            <div className="card-actions justify-end">
+            <div className="card-actions mb-5 md:mb-0 md:justify-end">
               {/* The button to open modal */}
-              <label htmlFor="my-modal" className="btn btn-outline btn-primary">
-                Edit
-              </label>
+             
 
               {/* Put this part before </body> tag */}
               <input type="checkbox" id="my-modal" className="modal-toggle" />
@@ -84,13 +82,17 @@ const Reviews = ({ review, handleDelete, reviews, setReviews }) => {
             </div>
           </div>
           <p>{description}</p>
-          <div className="card-actions justify-end">
+          <div className="card-actions justify-between md:justify-end">
+          <label htmlFor="my-modal" className="btn btn-outline btn-primary">
+                Edit
+              </label>
             <button
               onClick={() => handleDelete(_id)}
               className="btn btn-outline btn-primary"
             >
               Delete
             </button>
+            
           </div>
         </div>
       </div>
