@@ -66,7 +66,7 @@ const Reviews = ({ review, handleDelete, reviews, setReviews }) => {
                     ></textarea>
                     {/* <p>{error}</p> */}
                     <button htmlFor="my-modal" className="btn btn-primary">
-                      Update
+                      Updated
                     </button>
                   </form>
                   <div className="modal-action">
