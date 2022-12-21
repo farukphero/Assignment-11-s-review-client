@@ -5,8 +5,11 @@ const Banner = () => {
   return ( 
    <div className="relative">
      <div className="carousel w-full">
-      <div className="relative w-full img-gradient">
-        <img src="https://blog.flyticket.com.bd/wp-content/uploads/2020/05/image001.jpg" alt="" className="w-full h-screen" />
+      <div className="relative w-full  ">
+        <div className="absolute  bg-black h-full w-full opacity-20">
+
+        </div>
+        <img src="https://media.istockphoto.com/id/904172104/photo/weve-made-it-all-this-way-i-am-proud.jpg?s=612x612&w=0&k=20&c=MewnsAhbeGRcMBN9_ZKhThmqPK6c8nCT8XYk5ZM_hdg=" alt="" className="w-full h-screen" />
       </div>
       <div className="absolute top-64 left-0 md:left-28 w-full md:w-5/6 text-white">
         <h1 className="text-6xl lg:text-8xl text-center font-semibold">Let's Make Your Best Trip Ever</h1>

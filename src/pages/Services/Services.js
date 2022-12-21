@@ -20,7 +20,7 @@ const Services = () => {
       <div className="relative">
         <img
           className="w-full h-96"
-          src="https://preview.colorlib.com/theme/flyplane/img/places/hp-1.jpg"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCCz8oyUXPlrKkdx7x_AXi2aTGlMYKKh8vAvAfSr0YfzPzCVNucYVItgSxouOAaXyWc5s&usqp=CAU"
           alt=""
         />
         <p className="absolute top-52 left-0 md:left-28 text-white text-3xl md:text-6xl font-semibold">
